@@ -1,0 +1,79 @@
+<%- include('header.ejs') %>
+
+<section class="vh-100 bg-image"
+  style="background-image: url('../image/register.jpeg');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+              <p style="font-family: cursive;color: black;">Already have a Blog username and password?<a href="/login">log in</a></p>
+            <h1 style="font-family: cursive;font-size: 30px;color: black;">Personal Information</h1>
+              <% if(message.length>0){%>
+                <div class="alert alert-danger">
+                  <%=message%></div>
+                  <% }%>
+              <form action="/adminregister"method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                  <input type="text" name="name" class="form-control" placeholder="Name">
+                </div>
+                <div class="mb-3">
+                  <input type="text" name="email" class="form-control" placeholder="E-Mail">
+                </div>
+                <div class="mb-3">
+                  <input type="text" name="password" class="form-control" placeholder="password">
+                </div>
+                <div class="mb-3">
+                  <input type="text" name="cpassword" class="form-control" placeholder="Confirm password">
+                </div>
+                <p style="font-family: cursive;color: black;">Please note that your email will be your user name when signing into your Blog account.</p>
+                <div class="mb-3">
+                  <button type="submit" class="btn btn-primary">CREATE ACCOUNT</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <section class="cmspage mtb-40">
+    <div class="container">
+      <div class="page-desc">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <h1 style="font-family: cursive;font-size: 30px;color: white;">Create an Account</h1>
+            <p style="font-family: cursive;color: white;">Already have a Blog username and password?<a href="/login">log in</a></p>
+            <h1 style="font-family: cursive;font-size: 30px;color: white;">Personal Information</h1>
+            <% if(message.length>0){%>
+              <div class="alert alert-danger">
+                <%=message%></div>
+                <% }%>
+            <form action="/adminregister"method="post" enctype="multipart/form-data">
+              <div class="mb-3">
+                <input type="text" name="name" class="form-control" placeholder="Name">
+              </div>
+              <div class="mb-3">
+                <input type="text" name="email" class="form-control" placeholder="E-Mail">
+              </div>
+              <div class="mb-3">
+                <input type="text" name="password" class="form-control" placeholder="password">
+              </div>
+              <div class="mb-3">
+                <input type="text" name="cpassword" class="form-control" placeholder="Confirm password">
+              </div>
+              <p style="font-family: cursive;color: white;">Please note that your email will be your user name when signing into your Blog account.</p>
+              <div class="mb-3">
+                <button type="submit" class="btn btn-primary">CREATE ACCOUNT</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</section> -->
+<%- include('footer.ejs') %>

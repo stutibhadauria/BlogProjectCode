@@ -1,0 +1,73 @@
+<%- include('../../header.ejs')%>
+
+<section class="dashboard-wrap mtb-40">
+    <div class="container">
+        <div class="body-content">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="dash-left">
+                        <ul>
+                            <li class="active"><a href="/admin/dashboard">Dashboard</a></li>
+                            <li><a href="/admin/blog" class="active">Blogs</a></li>
+                            <li><a href="/admin/category">Categories</a></li>
+                            <li><a href="/admin/contactdisplay">Contact</a></li>
+                            <li><a href="/admin/about">About</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="dash-right">
+                        <div class="dash-header">
+                            <div class="dash-title">
+                                <h1>Edit blogs of <%=blogedit._id%></h1>
+                            </div>
+                            <div class="dash-nav">
+                                <!-- <button type="button" class="btn btn-success" data-toggle="modal"
+                                    data-target="#exampleModal"> Blogs</button> -->
+                            </div>
+                        </div>
+                            <form method="post" action="/blogupdate/<%= blogedit._id%>"enctype="multipart/form-data">
+                            <div class="form-group form-row">
+                                <label class="col-md-3 required">Title *</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="title" value="<%= blogedit.title%>" placeholder="Title" required
+                                        formControlName="title">
+                                </div>
+                            </div>
+                            <!-- <div class="form-group form-row">
+                                                      <label class="col-md-3">Upload Image</label>
+                                                      <div class="col-md-9">
+                                                        <input type="file" id="image" />
+                                                      </div>
+                                                    </div> -->
+                            <div class="form-group form-row">
+                                <label class="col-md-3 required">Description *</label>
+                                <div class="col-md-9">
+                                    <textarea name="description" rows="5" class="form-control" name="description" 
+                                        placeholder="Description" required formControlName="description"><%= blogedit.description%></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group form-row">
+                                <label class="col-md-3 required">Upload Image *</label>
+                                <div class="col-md-9">
+                                    <input type="file" name="image" class="form-control" >
+                                    <img src="<%= blogedit.image.url %>" width="100px" height="100px">
+                                </div>
+                            </div>
+                            <div class="form-group form-row">
+                                <label class="col-md-3"></label>
+                                <div class="col-md-9">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('../../footer.ejs')%>
+

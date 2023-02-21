@@ -1,0 +1,50 @@
+<%- include('../../header.ejs')%>
+<br><br><br>
+<div class="container">
+    <div class="body-content">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="dash-left">
+                    <ul>
+                        <li class="active"><a href="/admin/dashboard"style="font-weight:bold;">Dashboard</a></li>
+                        <li><a href="/admin/blogdisplay" style="font-weight:bold;">Blogs</a></li>
+                        <li><a href="/admin/category"style="font-weight:bold;">Categories</a></li>
+                        <li><a href="/admin/contact"class="active"style="font-weight:bold;">Contact</a></li>
+                        <li><a href="/admin/about"style="font-weight:bold;">About</a></li>
+                        <li><a href="/logout"style="font-weight:bold;">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="dash-right">
+                    <div class="dash-header">
+                        <div class="dash-title">
+                            <h1 style="font-family: cursive;color:white">Contact details</h1>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th class="bg-secondary">s.no</th>
+                            <th class="bg-secondary">Name</th>
+                            <th class="bg-secondary">Email</th>
+                            <th class="bg-secondary">Phone</th>
+                            <th class="bg-secondary">Message</th>
+                        </tr>
+                        <% i=1%>
+                        <% c.forEach((b)=>{%>
+                            <tr>
+                                <td class="text-white"><%= i++ %></td>
+                                <td class="text-white"><%= b.name %></td>
+                                <td class="text-white"><%= b.email %></td>
+                                <td class="text-white"><%= b.phone%></td>
+                                <td class="text-white"><%= b.message %></td>
+                            </tr>
+                        <%})%>
+                       
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../../footer.ejs')%>

@@ -1,0 +1,128 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.navbar{
+ background: #122f43;
+}
+.navbar-nav li
+{
+    padding: 0 10px;
+ }
+.navbar-nav li a
+   {
+     color:black !important;
+     font-weight: 600;
+     font-size: 20px;
+     font-family: cursive;
+}
+.navbar-nav li a:hover{
+    background-color: #122f43;
+}
+.navbar-brand img{
+    max-width: 40px;
+    height:auto;  
+    color: black;
+    margin-left: 50px;
+}
+.carousel-inner img{
+    height: 600px;
+}
+@media(max-width: 414px)
+{
+    .carousel-inner img{
+    height: auto;
+}
+}
+.carousel-indicators [data-bs-target]{
+    width:12px;
+    height:12px;
+    border-radius: 50%;
+    background-color:rgb(149, 142, 142);
+}
+.why{
+	text-align: center;
+}
+.why h1{
+    font-family: cursive;
+    margin-top: 20px;
+}
+.a img{
+	width: 400px;
+	height: 300px;
+	margin-top: 70px;
+	box-shadow: 5px 5px 12px;
+	border-radius: 50%;
+}
+.a h3{
+	margin-top: 20px;
+	font-family: cursive;
+}
+.a p{
+   margin-top: 10px;
+}
+.b img{
+	width: 400px;
+	height: 300px;
+	margin-top: 30px;
+	box-shadow: 5px 5px 12px;
+	border-radius: 50%;
+}
+.b h3{
+	margin-top: 20px;
+	font-family: cursive;
+}
+.b p{
+	margin-top: 10px;
+}
+.title::before, .title::after{
+    content: "";
+    height: 2px;
+    background-color: #000;
+    display: block;
+}
+.title{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    column-gap: 1.6 rem;
+    font-family: cursive;
+}
+.footer .footer_social_media_icon{
+    padding:0px;
+    border-radius: 50%;
+    height:34px; 
+    text-align: center;
+    width:34px;
+    margin:0 10px 10px 0;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    background-color:grey;
+    color:black;
+    text-decoration: none;
+}
+.footer .footer_social_media_icon:hover{
+    background-color:green;
+    color:white;
+}
+.footer{
+	background-color: #e6fa05;   
+    /* margin-top: 30px; */
+}
+.c img{
+    max-width: 50px;
+    margin-top: 90px;
+}
+.d h4{
+	font-size: 15px;
+	font-weight: bold;
+}
+.d h1{
+	margin-top: 70px;
+}
+.d p{
+	font-size:13px ;
+}
+
+

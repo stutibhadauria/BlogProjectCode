@@ -1,0 +1,28 @@
+<%- include('../header.ejs')%>
+<section class="dashboard-wrap mtb-40">
+    <div class="container">
+        <div class="body-content">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="dash-left">
+                        <ul>
+                            <li class="active"><a href="/admin/dashboard" class="active"style="font-weight:bold;">Dashboard</a></li>
+                            <li><a href="/admin/blogdisplay"style="font-weight:bold;">Blogs</a></li>
+                            <li><a href="/admin/category"style="font-weight:bold;">Categories</a></li>
+                            <li><a href="/admin/contact"style="font-weight:bold;">Contact</a></li>
+                            <li><a href="/admin/about"style="font-weight:bold;">About</a></li>
+                           
+                            <li><a href="/logout"style="font-weight:bold;">Logout</a></li>
+                        </ul>
+                    </div>   
+                </div>
+                <div class="col-md-7">
+                    <div class="dash-right">
+                        <h1 style="font-size: 80px;color: white;">Welcome<br><b class="text-white"><%=n %></b></h1>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<%- include('../footer.ejs')%>

@@ -1,0 +1,71 @@
+<%- include('header.ejs') %>
+
+<!-- slider start -->
+<div class="carousel slide" data-bs-ride="carousel" id="a">
+ 
+    <div class="carousel-indicators">
+     <button type="button" data-bs-target="#a" data-bs-slide-to="0" class="active"></button>
+     <button type="button" data-bs-target="#a" data-bs-slide-to="1" ></button>
+     <button type="button" data-bs-target="#a" data-bs-slide-to="2" ></button>
+     <button type="button" data-bs-target="#a" data-bs-slide-to="3" ></button>
+    </div>
+
+
+    <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="4000">
+
+      <img src="/image/photo4.webp" class="w-100" alt="...">
+      <div class="col-md-6 text-start carousel-caption pt-4">
+        <h2 style="font-family:cursive">Level Up Your Projects</h2>
+        <p style="font-family:cursive">Looking to manage your time (and energy) more effectively? Advance your career? Supercharge the projects that matter MOST to you? You’ve come to the right place.</p>
+      </div>
+      <div class="carousel-caption">
+      </div>
+    </div>
+
+    <div class="carousel-item" data-bs-interval="4000">
+
+      <img src="/image/slider-3.jpg" class="w-100" alt="...">
+    </div>
+
+    <div class="carousel-item" data-bs-interval="4000">
+
+      <img src="/image/slider-1.jpg" class="w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="4000">
+
+      <img src="/image/slider-2.jpg" class="w-100" alt="...">
+    </div>
+    </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#a" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+   
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#a" data-bs-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    
+  </button>
+</div>
+<!-- slider end -->
+
+<!-- why start -->
+<div class="container-fluid why">
+	<div class="row">
+    <h1 class="text-white">Some blogs</h1>
+    <h4 class="text-center text-white">****************************************</h4>
+    <% d.forEach((item)=>{ %>
+		<div class="col-md-4 a">
+			<img src="<%= item.image.url %>"alt="image fault">
+			<h3 class="text-white"><%= item.title%></h3>
+			<p class="text-white"><%=item.createdAt.toLocaleDateString()%></p>
+      <p class="text-white"><%= item.description.slice(0,100)%></p>
+      <a href="/readmore/<%= item._id%>" class="btn btn-danger">Read More..</a>
+		</div>
+  <% })%>
+		
+	
+	</div>
+</div><br>
+<!-- why end -->
+
+<%- include('footer.ejs')%>

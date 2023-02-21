@@ -1,0 +1,29 @@
+<%- include('header.ejs')%>
+<!-- why start -->
+<div class="container-fluid why1">
+	<div class="row">
+		<div class="col-md-7 pt-2">
+			<h1 class="text-white">Learn how to level up<br> your projects</h1>
+		 </div>
+		 <div class="col-md-5">
+		   <img src="/image/photo5.jpg">
+		 </div>
+	</div>
+</div>
+<div class="container-fluid why">
+	<div class="row">
+    <% d.forEach((item)=>{ %>
+		<div class="col-md-4 a">
+			<img src="<%= item.image.url %>"alt="image fault">
+			<h3 class="text-white"><%= item.title%></h3>
+			<p class="text-white"><%=item.createdAt.toLocaleDateString()%></p>
+      <p class="text-white"><%= item.description.slice(0,100)%></p>
+      <a href="/readmore/<%= item._id%>" class="btn btn-danger">Read More..</a>
+		</div>
+  <% })%>
+		
+	
+	</div>
+</div><br>
+<!-- why end -->
+<%- include('footer.ejs')%>

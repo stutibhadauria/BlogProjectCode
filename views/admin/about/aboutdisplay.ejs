@@ -1,0 +1,43 @@
+<%- include('../../header.ejs')%>
+<br>
+<div class="container">
+    <div class="body-content">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="dash-left">
+                    <ul>
+                        <li class="active"><a href="/admin/dashboard"style="font-weight:bold;">Dashboard</a></li>
+                        <li><a href="/admin/blogdisplay"style="font-weight:bold;">Blogs</a></li>
+                        <li><a href="/admin/category"style="font-weight:bold;">Categories</a></li>
+                        <li><a href="/admin/contact"style="font-weight:bold;">Contact</a></li>
+                        <li><a href="/admin/about"class="active"style="font-weight:bold;">About</a></li>
+                        <li><a href="/logout"style="font-weight:bold;">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="dash-right">
+                    <div class="dash-header">
+                        <div class="dash-title">
+                            <h1 style="font-family: cursive;color: white;">About of Blogs</h1>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th class="bg-secondary">description</th>
+                            <th class="bg-secondary">Action</th>
+                        </tr>
+                        <% a.forEach((b)=>{%>
+                            <tr>
+                                <td class="text-white"><%= b.description %></td>
+                                <td><a href="/admin/aboutedit/<%=b._id%>" class="btn btn-danger"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                            </tr>
+                        <%})%>
+                       
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../../footer.ejs')%>

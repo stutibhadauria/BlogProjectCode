@@ -1,0 +1,125 @@
+<%- include('../../header.ejs')%>
+
+
+<section class="dashboard-wrap mtb-40">
+    <div class="container">
+        <div class="body-content">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="dash-left">
+                        <ul>
+                            <li class="active"><a href="/admin/dashboard"style="font-weight:bold;">Dashboard</a></li>
+                            <li><a href="/admin/blogdisplay"style="font-weight:bold;">Blogs</a></li>
+                            <li><a href="/admin/category" class="active"style="font-weight:bold;">Categories</a></li>
+                            <li><a href="/admin/contact"style="font-weight:bold;">Contact</a></li>
+                            <li><a href="/admin/about"style="font-weight:bold;">About</a></li>
+                            <li><a href="/logout"style="font-weight:bold;">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="dash-right">
+                        <div class="dash-header">
+                            <div class="dash-title">
+                                <h1 style="font-family: cursive;color:white">Category</h1>
+                            </div>
+                            <div class="dash-nav">
+                                <button type="button" class="btn btn-primary"data-toggle="modal"
+                                data-target="#exampleModal">Add category</button>
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <th class="bg-secondary">S.no</th>
+                                <th class="bg-secondary">Image</th> 
+                                <th class="bg-secondary">Title</th>
+                                <!-- <th class="bg-primary">Discrption</th>-->
+                                <th class="bg-secondary">Action</th>
+                            </tr>
+                            <% i=1 %>
+                            <% c.forEach((b)=>{%>
+                                <tr>
+                                    <td class="text-white"><%= i++ %></td>
+                                    <td><img src="<%= b.image.url%>"width="100px"></td>
+                                     <td class="text-white"><%= b.title %></td>
+                                    <td>
+                                        <a href="/admin/categoryview/<%=b._id%>" class="btn btn-info"><i class="fa-sharp fa-solid fa-eye"></i></a>
+                                        <a href="/admin/categoryedit/<%=b._id%>" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                                        <a href="/admin/categorydelete/<%=b._id%>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            <%})%>
+                            <!-- <tr>
+                                <td>1</td>
+                                <td>Ram</td>
+                                <td>lorem ipsum</td>
+                                <td>
+                                    <a href="#" class="btn btn-info">view</a>
+                                    <a href="#" class="btn btn-warning">Edit</a>
+                                    <a href="#" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr> -->
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form method="post" action="/categoryinsert" enctype="multipart/form-data">
+                        <div class="form-group form-row">
+                            <label class="col-md-3 required">Upload Image *</label>
+                            <div class="col-md-9">
+                                <input type="file" name="image" class="form-control" formControlName="image">
+                            </div>
+                        </div>
+                        <div class="form-group form-row">
+                            <label class="col-md-3 required">Title *</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="title" placeholder="Title" required
+                                    formControlName="title">
+                            </div>
+                        </div>
+                         <!-- <div class="form-group form-row">
+                                                      <label class="col-md-3">Upload Image</label>
+                                                      <div class="col-md-9">
+                                                        <input type="file" id="image" />
+                                                      </div>
+                                                    </div> -->
+                        <!-- <div class="form-group form-row">
+                            <label class="col-md-3 required">Description *</label>
+                            <div class="col-md-9">
+                                <textarea name="description" rows="5" class="form-control"name="description" placeholder="Description"
+                                    required formControlName="description"></textarea>
+                            </div>
+                        </div> -->
+
+                        <div class="form-group form-row">
+                            <label class="col-md-3"></label>
+                            <div class="col-md-9">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+               </form>
+                </div>
+
+            </div>
+        </div>           
+    </div>
+</section>
+
+<%- include('../../footer.ejs')%>
