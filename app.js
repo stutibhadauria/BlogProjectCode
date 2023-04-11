@@ -24,11 +24,12 @@ app.use(session({
     
   }));
   
-  app.use(flash());
-
+app.use(flash());
+  
 // mongo db connections
 connectdb()
 
+app.use(express.static('public'))
 
 // setup ejs
 app.set('view engine','ejs')
@@ -37,10 +38,6 @@ app.set('view engine','ejs')
 app.use(express.urlencoded({extended:false}))
 
 const web =require('./routes/web.js')
-
-
-app.use(express.static('public'))
-
 
 
 //router link

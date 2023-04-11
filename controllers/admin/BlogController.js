@@ -61,24 +61,31 @@ class BlogController{
             // console.log(req.params.id)
             // console.log(req.body)
             //image delete
-            const blogdata=await BlogModel.findById(req.params.id)
+            if(req.files){
+                const blogdata=await BlogModel.findById(req.params.id)
             const imageid=blogdata.image.public_id
             // console.log(imageiid)
             await cloudinary.uploader.destroy(imageid)
             //image update
             const file=req.files.image
             const myimage=await cloudinary.uploader.upload(file.tempFilePath,{
-            folder:'blogs_image'
-            })
-
-            const result=await BlogModel.findByIdAndUpdate(req.params.id,{
+            folder:'blogs_image'                   
+            });
+            var imgdata={
                 title:req.body.title,
                 description:req.body.description,
                 image: {
                     public_id: myimage.public_id,
                     url: myimage.secure_url                     
+                },
+            }
+            }else{
+              var imgdata={
+                    title:req.body.title,
+                description:req.body.description,
                 }
-            })
+            }
+            const result=await BlogModel.findByIdAndUpdate(req.params.id,imgdata)
             await result.save()
              res.redirect('/admin/blogdisplay')
         }catch(err){
@@ -98,4 +105,5 @@ class BlogController{
         }
     }
     
-}module.exports=BlogController
+}
+module.exports=BlogController
