@@ -1,11 +1,10 @@
 const express=require('express');
 const FrontController = require('../controllers/FrontController');
-const StudentController = require('../controllers/StudentController');
-const AdminController=require('../controllers/admin/Admincontroller.js')
-const BlogController = require('../controllers/admin/BlogController.js')
-const CategoryController = require('../controllers/admin/CategoryController.js')
-const ContactController = require('../controllers/admin/ContactController.js')
-const AboutController = require('../controllers/admin/AboutController.js')
+const AdminController=require('../controllers/admin/AdminController');
+const BlogController = require('../controllers/admin/BlogController');
+const CategoryController = require('../controllers/admin/CategoryController');
+const ContactController = require('../controllers/admin/ContactController');
+const AboutController = require('../controllers/admin/AboutController');
 const router = express.Router();
 const admin_auth=require('../middleware/auth')
 
