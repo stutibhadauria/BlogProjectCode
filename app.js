@@ -6,7 +6,8 @@ const bodyParser=require('body-parser')
 const fileUpload = require("express-fileupload");
 const cookieParser = require('cookie-parser')
 app.use(cookieParser())
-var session = require('express-session')
+const session = require('express-session')
+const MemoryStore=require('memorystore')(session)
 var flash = require('connect-flash');
 const router=require('./routes/web')
 
@@ -17,11 +18,16 @@ app.use(fileUpload({useTempFiles: true}));
 
 
 app.use(session({
-    secret: 'secret',
-    cookie: { maxAge: 60000 },
+    // secret: 'secret',
+    // cookie: { maxAge: 60000 },
+    // resave: false,
+    // saveUninitialized: false,
+    cookie: { maxAge: 86400000 },
+    store: new MemoryStore({
+      checkPeriod: 86400000 // prune expired entries every 24h
+    }),
     resave: false,
-    saveUninitialized: false,
-    
+    secret: 'keyboard cat'
   }));
   
 app.use(flash());
